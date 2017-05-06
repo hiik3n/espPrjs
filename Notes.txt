@@ -1,0 +1,86 @@
+
+ESP8266 NodeMCU
+
+AT Command PlayArround:
+	USB Driver: https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx
+	Templated AT Command: https://nurdspace.nl/ESP8266#AT_Commands
+	Tested AT+Command: http://www.espressif.com/sites/default/files/4b-esp8266_at_command_examples_en_v1.3.pdf
+
+	Adruino Serial Console + port:
+
+	Issues:	braudrate = 115700
+			+ \r\n at the end
+
+	AT			//TEST AT
+		OK
+	
+	AT+RST		//RESET
+
+	AT+GMR		//GET STATUS
+		AT version:1.2.0.0(Jul  1 2016 20:04:45)
+		SDK version:1.5.4.1(39cb9a32)
+		Ai-Thinker Technology Co. Ltd.
+		Dec  2 2016 14:21:16
+	
+	AT+CWLAP		//LIST ALL AP
+
+	AT+CWMODE=1	//SET MODE 0: STATION; 1:AP; 2:BOTH
+		OK
+
+	AT+CWJAP=“ssid”,”password”		//JOIN NETWORK
+		WIFI CONNECTED
+		WIFI GOT IP
+		OK
+
+	AT+CIFSR	//GET  IP
+		+CIFSR:STAIP,"192.168.100.10"
+		+CIFSR:STAMAC,"a0:20:a6:05:86:59"
+		OK
+	
+	AT+PING="GOOGLE.COM"		//TEST CONNECTION
+		+68
+		OK
+
+Custom Firmware with Arduino IDE
+	tutorial link: https://diyhacking.com/esp8266-gpio/
+
+MicroPython
+	ls /dev/tty.*
+	esptool.py --port /dev/tty.SLAB_USBtoUART erase_flash
+	esptool.py --port /dev/tty.SLAB_USBtoUART --baud 460800 write_flash --flash_size=detect -fm dio 0 esp8266-20170108-v1.8.7.bin
+
+	screen /dev/tty.SLAB_USBtoUART 115200
+
+	[Errno 16] Resource busy: '/dev/tty.SLAB_USBtoUART'
+
+	lsof | grep usbserial	(UART)
+	screen -x 27127
+	use ctr-A ctr-\ to close it properly
+
+	can perform a soft reset from the REPL by pressing Ctrl-D, or from your python code by executing: raise SystemExit
+	
+	http://micropython.org/download#esp8266
+
+	http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/intro.html
+
+Paste multiple line in terminal: Crtl + E
+
+useful link:
+
+https://github.com/Nicholas3388/LuaNode
+http://www.esp8266.com/wiki/doku.php?id=esp8266-module-family
+
+Get Started With ESP8266 Using AT Commands, NodeMCU, or Arduino (ESP-12E)
+http://www.instructables.com/id/Get-Started-with-ESP8266-Using-AT-Commands-NodeMCU/
+
+Wireless Communication with ESP8266
+http://fab.cba.mit.edu/classes/865.15/people/dan.chen/esp8266/
+
+ESP8266 Tutorial: Programming the Onboard GPIO Pins (Adrunio IDE)
+https://diyhacking.com/esp8266-gpio/
+
+Quick reference for the ESP8266
+https://docs.micropython.org/en/latest/esp8266/esp8266/quickref.html
+
+ADAFRUIT IO
+https://learn.adafruit.com/category/adafruit-io

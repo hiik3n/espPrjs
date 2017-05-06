@@ -1,0 +1,18 @@
+ESP8266 NodeMCU
+
+MicroPython
+
+	ls /dev/tty.*
+	esptool.py --port /dev/tty.SLAB_USBtoUART erase_flash
+	esptool.py --port /dev/tty.SLAB_USBtoUART --baud 460800 write_flash --flash_size=detect -fm dio 0 esp8266-20170108-v1.8.7.bin
+
+	Start Code Import Window
+		screen /dev/tty.SLAB_USBtoUART 115200
+
+	lsof | grep usbserial
+	screen -x 27127
+	
+	http://micropython.org/download#esp8266
+
+	http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/intro.html
+
