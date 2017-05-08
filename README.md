@@ -18,3 +18,6 @@ https://docs.micropython.org/en/latest/esp8266/esp8266/quickref.html
 
 ADAFRUIT IO
 https://learn.adafruit.com/category/adafruit-io
+
+***MicroPython:
+http://docs.micropython.org/en/latest/esp8266/esp8266/general.html#boot-process
