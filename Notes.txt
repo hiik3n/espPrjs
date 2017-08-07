@@ -63,8 +63,7 @@ MicroPython
 
 	http://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/intro.html
 
-Paste multiple line in terminal: Crtl + E
-
+Paste multiple line in terminal: Crtl + E,  Ctrl-C to cancel, Ctrl-D to finish
 useful link:
 
 https://github.com/Nicholas3388/LuaNode
